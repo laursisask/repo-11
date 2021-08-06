@@ -3,9 +3,19 @@ plugins {
     id 'nebula.provided-base' version '3.0.3'
     id 'com.github.johnrengelman.shadow' version '5.2.0'
     id "com.jfrog.bintray" version "1.8.4" apply false
+    id 'io.github.gradle-nexus.publish-plugin' version '1.1.0'
+    id 'maven-publish'
 }
 
 apply from: "$rootDir/gradle/ci-support.gradle"
+
+nexusPublishing {
+    repositories {
+        sonatype {
+            packageGroup = 'com.redislabs.testcontainers'
+        }
+    }
+}
 
 subprojects {
     apply plugin: 'nebula.provided-base'
@@ -13,8 +23,9 @@ subprojects {
     apply plugin: 'idea'
     apply plugin: 'io.franzbecker.gradle-lombok'
     apply plugin: 'com.github.johnrengelman.shadow'
+    apply plugin: 'signing'
 
-    group = "org.testcontainers"
+    group = "com.redislabs.testcontainers"
 
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
@@ -23,6 +34,7 @@ subprojects {
 
     repositories {
         jcenter()
+        mavenLocal()
         mavenCentral()
     }
 
@@ -58,7 +70,12 @@ subprojects {
             }
         }
 
+        signing {
+            sign publishing.publications.mavenJava
+        }
+
         task release(dependsOn: bintrayUpload)
+
     }
 
     test {
