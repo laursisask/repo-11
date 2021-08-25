@@ -12,7 +12,7 @@ apply from: "$rootDir/gradle/ci-support.gradle"
 nexusPublishing {
     repositories {
         sonatype {
-            packageGroup = 'com.redislabs.testcontainers'
+            packageGroup = 'com.redis.testcontainers'
         }
     }
 }
@@ -25,7 +25,7 @@ subprojects {
     apply plugin: 'com.github.johnrengelman.shadow'
     apply plugin: 'signing'
 
-    group = "com.redislabs.testcontainers"
+    group = "com.redis.testcontainers"
 
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
