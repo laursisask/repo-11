@@ -57,3 +57,4 @@ The following attributes are exported:
     * `certificates.#.subject` - The entity the certificate belongs to, roughly following
     [RFC2253](https://tools.ietf.org/html/rfc2253).
     * `certificates.#.version` - The version the certificate is in.
+     * `certificates.#.pem` - The certificate, PEM-encoded.
