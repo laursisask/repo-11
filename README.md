@@ -1,4 +1,4 @@
-# Adobe I/O Documentation Template
+# Adobe App Buider Template Registry Docs
 
 This is a site template built with the [Adobe I/O Theme](https://github.com/adobe/aio-theme).
 
