@@ -1,0 +1,201 @@
+{
+  "openapi": "3.0.0",
+  "servers": [
+    {
+      "url": "TBD"
+    }
+  ],
+  "info": {
+    "title": "Template Registry API",
+    "version": "1.0.0"
+  },
+  "components": {
+    "schemas": {
+      "IssueResponse": {
+        "type": "object",
+        "example": {
+          "url": "https://github.com/adobe/aio-template-submission/issues/<number>"
+        },
+        "properties": {
+          "url": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/link": {
+      "post": {
+        "parameters": [
+          {
+            "in": "header",
+            "name": "github-token",
+            "description": "Github authorization token with \"issue create\" permissions",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Add a template to Template Registry",
+          "required": true,
+          "content": {
+            "application/json": {
+              "example": {
+                "url-package": "https://www.npmjs.com/package/<package-name>",
+                "url-repository": "https://github.com/<org>/<repository>"
+              },
+              "schema": {
+                "type": "object",
+                "required": [
+                  "url-package",
+                  "url-repository"
+                ],
+                "properties": {
+                  "url-package": {
+                    "type": "string"
+                  },
+                  "url-repository": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns URL of created Github issue",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IssueResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "\"url-package\" field is required."
+          },
+          "403": {
+            "description": "Header \"Github-Token\" is not provided."
+          }
+        }
+      }
+    },
+    "/list": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "example": "<domain>/list?&category=aio-action,vaio-action-&category-filter-type=include&expoint=expoint-name&expoint-filter-type=exclude",
+            "name": "category",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "category": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "category-filter-type": {
+                  "type": "string"
+                },
+                "expoint": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "expoint-filter-type": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "Get the list of available templates"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get the list of available templates",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/unlink": {
+      "post": {
+        "parameters": [
+          {
+            "in": "header",
+            "name": "github-token",
+            "description": "Github authorization token with \"issue create\" permissions",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Remove a template from Template Registry",
+          "required": true,
+          "content": {
+            "application/json": {
+              "example": {
+                "url-package": "https://www.npmjs.com/package/<package-name>"
+              },
+              "schema": {
+                "type": "object",
+                "required": [
+                  "url-package"
+                ],
+                "properties": {
+                  "url-package": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns URL of created Github issue",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IssueResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "\"url-package\" field is required."
+          },
+          "403": {
+            "description": "Header \"Github-Token\" is not provided."
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}
