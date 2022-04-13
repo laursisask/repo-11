@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "servers": [
     {
-      "url": "TBD"
+      "url": "https://360030-templateregistryapi-stage.adobeioruntime.net/api/v1/web/template-registry-api-list"
     }
   ],
   "info": {
@@ -44,17 +44,17 @@
           "content": {
             "application/json": {
               "example": {
-                "url-package": "https://www.npmjs.com/package/<package-name>",
+                "package": "<package-name>",
                 "url-repository": "https://github.com/<org>/<repository>"
               },
               "schema": {
                 "type": "object",
                 "required": [
-                  "url-package",
+                  "package",
                   "url-repository"
                 ],
                 "properties": {
-                  "url-package": {
+                  "package": {
                     "type": "string"
                   },
                   "url-repository": {
@@ -77,10 +77,10 @@
             }
           },
           "400": {
-            "description": "\"url-package\" field is required."
+            "description": "Required params or headers does not passed"
           },
-          "403": {
-            "description": "Header \"Github-Token\" is not provided."
+          "4XX": {
+            "description": "Cannot process Github API call"
           }
         }
       }
@@ -160,15 +160,15 @@
           "content": {
             "application/json": {
               "example": {
-                "url-package": "https://www.npmjs.com/package/<package-name>"
+                "package": "<package-name>"
               },
               "schema": {
                 "type": "object",
                 "required": [
-                  "url-package"
+                  "package"
                 ],
                 "properties": {
-                  "url-package": {
+                  "package": {
                     "type": "string"
                   }
                 }
@@ -188,10 +188,11 @@
             }
           },
           "400": {
-            "description": "\"url-package\" field is required."
+            "description": "Required params or headers does not passed"
           },
-          "403": {
-            "description": "Header \"Github-Token\" is not provided."
+          "403": "Not authorized",
+          "4XX": {
+            "description": "Cannot process Github API call"
           }
         }
       }
