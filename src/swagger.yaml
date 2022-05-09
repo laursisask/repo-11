@@ -15,8 +15,8 @@ paths:
       operationId: addTemplate
       tags:
         - templates
-      parameters:
-        - $ref: "#/components/parameters/GithubToken"
+      security:
+        - bearerAuth: []
       requestBody:
         required: true
         content:
@@ -44,7 +44,7 @@ paths:
               example:
                 {"name":"@adobe/app-builder-template","links":{"github":"https://github.com/adobe/app-builder-template"}}
       responses:
-        "201":
+        "200":
           description: Information about a newly added template.
           content:
             application/json:
@@ -140,8 +140,9 @@ paths:
       operationId: deleteTemplateByTemplateName
       tags:
         - templates
+      security:
+        - bearerAuth: []
       parameters:
-        - $ref: "#/components/parameters/GithubToken"
         - $ref: "#/components/parameters/TemplateName"
       responses:
         "200":
@@ -162,15 +163,12 @@ paths:
           $ref: "#/components/responses/GatewayTimeout"
 
 components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
   parameters:
-    GithubToken:
-      name: github-token
-      in: header
-      required: true
-      description: A Github authorization token with the "issue create" permissions
-      schema:
-        type: string
-      example: 'ghp_abcd1234'
     TemplateName:
       name: templateName
       in: path
@@ -364,9 +362,14 @@ components:
       description: |
         A key-value object representing related resources.
         A key name represents a related resource and the value of the key specifies an object containing the resource's URL in the "href" key.
-      minItems: 1
-      items:
-        $ref: "#/components/schemas/Link"
+      additionalProperties: false
+      properties:
+        self:
+          $ref: "#/components/schemas/Link"
+        next:
+          $ref: "#/components/schemas/Link"
+        review:
+          $ref: "#/components/schemas/Link"
     Link:
       description: An object describing a related resource.
       type: object
