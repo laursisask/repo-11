@@ -1,3 +1,7 @@
+### ARCHIVED
+We had to fork the tls provider to expose pems. The official tls provider now exposes that. This was raised as an issue in hashicorp/terraform-provider-tls#82 (fixed via #208) and has landed in the provider with versions >= v3.4.0. We have archived this fork in favor of the official provider.
+
+
 Terraform Provider
 ==================
 
