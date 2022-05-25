@@ -4,7 +4,11 @@ info:
   description: Template Registry API
   version: 1.0.0
 servers:
-  - url: https://template-registry-api.tbd/api/{version}
+  - url: https://template-registry-api.tbd/apis/{version}
+    variables:
+      version:
+        default: v1
+  - url: https://360030-templateregistryapi-stage.adobeioruntime.net/apis/{version}
     variables:
       version:
         default: v1
@@ -51,13 +55,15 @@ paths:
               schema:
                 $ref: "#/components/schemas/Template"
                 example:
-                  {"id":"56bf8211-d92d-44ef-b98b-6ee89812e1d7","name":"@adobe/app-builder-template","status":"InVerification","links":{"npm":"https://www.npmjs.com/package/@adobe/app-builder-template","github":"https://github.com/adobe/app-builder-template"},"_links":{"self":{"href":"https://template-registry-api.tbd/api/v1/templates/@adobe/app-builder-template"},"review":{"href":"https://github.com/adobe/aio-template-submission/issues/<number>","description":"A link to \"Template Review Request\" Github Issue"}}}
+                  {"id":"56bf8211-d92d-44ef-b98b-6ee89812e1d7","name":"@adobe/app-builder-template","status":"InVerification","links":{"npm":"https://www.npmjs.com/package/@adobe/app-builder-template","github":"https://github.com/adobe/app-builder-template"},"_links":{"self":{"href":"https://template-registry-api.tbd/apis/v1/templates/@adobe/app-builder-template"},"review":{"href":"https://github.com/adobe/aio-template-submission/issues/<number>","description":"A link to \"Template Review Request\" Github Issue"}}}
         "400":
           $ref: "#/components/responses/BadRequest"
         "401":
           $ref: "#/components/responses/Unauthorized"
         "403":
           $ref: "#/components/responses/Forbidden"
+        "405":
+          $ref: "#/components/responses/HttpMethodNotAllowed"
         "409":
           $ref: "#/components/responses/Conflict"
         "500":
@@ -99,9 +105,11 @@ paths:
                   _links:
                     $ref: "#/components/schemas/Links"
                 example:
-                  {"items":[{"id":"f62f3381-592a-41a3-b936-ef953abd0155","author":"Adobe Inc.","name":"@adobe/app-builder-template","description":"AppBuilder template","adobeRecommended":true,"latestVersion":"1.0.10","publishDate":"2022-04-22T04:17:28.643Z","categories":["graphql-mesh"],"services":["AdobeAnalyticsSDK","PhotoshopSDK"],"keywords":["aio-app-builder-template","aio"],"status":"Approved","links":{"npm":"https://www.npmjs.com/package/@adobe/app-builder-template","github":"https://github.com/adobe/app-builder-template"},"_links":{"self":{"href":"https://template-registry-api.tbd/api/v1/templates/@adobe/app-builder-template"}}},{"id":"3e3aee0b-539e-43b1-b47c-0a69eaf39d6c","name":"@company1/app-builder-template","status":"InVerification","links":{"npm":"https://www.npmjs.com/package/@company1/app-builder-template","github":"https://github.com/company1/app-builder-template"},"_links":{"self":{"href":"https://template-registry-api.tbd/api/v1/templates/@company1/app-builder-template"},"review":{"href":"https://github.com/adobe/aio-template-submission/issues/<number>","description":"A link to \"Template Review Request\" Github Issue"}}}],"_links":{"self":{"href":"https://template-registry-api.tbd/api/v1/templates?statuses=Approved,InVerification"},"next":{"href":"https://template-registry-api.tbd/api/v1/templates?statuses=Approved,InVerification&cursor=MTIzNDU2Nzg5MA=="}}}
+                  {"items":[{"id":"f62f3381-592a-41a3-b936-ef953abd0155","author":"Adobe Inc.","name":"@adobe/app-builder-template","description":"AppBuilder template","adobeRecommended":true,"latestVersion":"1.0.10","publishDate":"2022-04-22T04:17:28.643Z","categories":["graphql-mesh"],"services":[{"code":"Runtime"}],"keywords":["aio-app-builder-template","aio"],"status":"Approved","links":{"npm":"https://www.npmjs.com/package/@adobe/app-builder-template","github":"https://github.com/adobe/app-builder-template"},"_links":{"self":{"href":"https://template-registry-api.tbd/apis/v1/templates/@adobe/app-builder-template"}}},{"id":"3e3aee0b-539e-43b1-b47c-0a69eaf39d6c","name":"@company1/app-builder-template","status":"InVerification","links":{"npm":"https://www.npmjs.com/package/@company1/app-builder-template","github":"https://github.com/company1/app-builder-template"},"_links":{"self":{"href":"https://template-registry-api.tbd/apis/v1/templates/@company1/app-builder-template"},"review":{"href":"https://github.com/adobe/aio-template-submission/issues/<number>","description":"A link to \"Template Review Request\" Github Issue"}}}],"_links":{"self":{"href":"https://template-registry-api.tbd/apis/v1/templates?statuses=Approved,InVerification"},"next":{"href":"https://template-registry-api.tbd/apis/v1/templates?statuses=Approved,InVerification&cursor=MTIzNDU2Nzg5MA=="}}}
         "400":
           $ref: "#/components/responses/BadRequest"
+        "405":
+          $ref: "#/components/responses/HttpMethodNotAllowed"
         "500":
           $ref: "#/components/responses/InternalServerError"
         "503":
@@ -124,11 +132,13 @@ paths:
               schema:
                 $ref: "#/components/schemas/Template"
                 example:
-                  {"id":"4bfdb3ef-b84c-4a74-b9fc-39657ed1aaf8","author":"Adobe Inc.","name":"@adobe/app-builder-template","description":"AppBuilder template","adobeRecommended":true,"latestVersion":"1.0.10","publishDate":"2022-04-22T04:21:26.922Z","categories":["graphql-mesh"],"services":["AdobeAnalyticsSDK","PhotoshopSDK"],"keywords":["aio-app-builder-template","aio"],"status":"Approved","links":{"npm":"https://www.npmjs.com/package/@adobe/app-builder-template","github":"https://github.com/adobe/app-builder-template"},"_links":{"self":{"href":"https://template-registry-api.tbd/api/v1/templates/@adobe/app-builder-template"}}}
+                  {"id":"4bfdb3ef-b84c-4a74-b9fc-39657ed1aaf8","author":"Adobe Inc.","name":"@adobe/app-builder-template","description":"AppBuilder template","adobeRecommended":true,"latestVersion":"1.0.10","publishDate":"2022-04-22T04:21:26.922Z","categories":["graphql-mesh"],"services":[{"code":"Runtime"}],"keywords":["aio-app-builder-template","aio"],"status":"Approved","links":{"npm":"https://www.npmjs.com/package/@adobe/app-builder-template","github":"https://github.com/adobe/app-builder-template"},"_links":{"self":{"href":"https://template-registry-api.tbd/apis/v1/templates/@adobe/app-builder-template"}}}
         "400":
           $ref: "#/components/responses/BadRequest"
         "404":
           $ref: "#/components/responses/NotFound"
+        "405":
+          $ref: "#/components/responses/HttpMethodNotAllowed"
         "500":
           $ref: "#/components/responses/InternalServerError"
         "503":
@@ -155,6 +165,8 @@ paths:
           $ref: "#/components/responses/Forbidden"
         "404":
           $ref: "#/components/responses/NotFound"
+        "405":
+          $ref: "#/components/responses/HttpMethodNotAllowed"
         "500":
           $ref: "#/components/responses/InternalServerError"
         "503":
@@ -301,9 +313,20 @@ components:
           type: string
           description: The date the template was published in the ISO 8601 format
           example: '2022-04-20T19:54:41.495Z'
+        extension:
+          type: object
+          description: It contains the extension metadata if the template implements an extension point
+          required:
+            - serviceCode
+          additionalProperties: true
+          properties:
+            serviceCode:
+              type: string
+              example: 'dx/excshell/1'
         categories:
           type: array
           description: A list of categories the template belongs to
+          minItems: 1
           items:
             type: string
           example:
@@ -311,11 +334,17 @@ components:
         services:
           type: array
           description: A list of Adobe services required by the template
+          minItems: 1
           items:
-            type: string
-          example:
-            - AdobeAnalyticsSDK
-            - PhotoshopSDK
+            type: object
+            required:
+              - code
+            additionalProperties: true
+            properties:
+              code:
+                type: string
+                description: The sdk code of the service
+                example: AdobeAnalyticsSDK
         keywords:
           type: array
           description: A list of keywords specified in the packages.json file
@@ -428,6 +457,8 @@ components:
       description: Not enough permissions to access this resource.
     Conflict:
       description: A resource already exists.
+    HttpMethodNotAllowed:
+      description: A target resource doesn't support this method.
     NotFound:
       description: A requested resource was not found or doesn't exist.
     InternalServerError:
@@ -436,3 +467,4 @@ components:
       description: A service is temporarily unable to handle a request. Try again later.
     GatewayTimeout:
       description: The underlying service did not respond on time. Try again later.
+      

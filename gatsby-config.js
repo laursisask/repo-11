@@ -18,10 +18,38 @@ module.exports = {
         path: '/'
       },
       {
+        title: 'Guides',
+        path: '/guides/'
+      },
+      {
         title: 'API',
         path: '/api/'
       }
     ],
+    subPages: [
+      {
+        title: 'Template Registry',
+        path: '/guides/',
+        pages: [
+          {
+            title: 'Overview',
+            path: '/guides/'
+          },
+          {
+            title: 'Github',
+            path: '/guides/github/'
+          },
+          {
+            title: 'CLI',
+            path: '/guides/cli/'
+          },
+          {
+            title: 'API',
+            path: '/guides/api/'
+          }
+        ]
+      }
+    ]
   },
   plugins: [`@adobe/gatsby-theme-aio`],
   pathPrefix: process.env.PATH_PREFIX || '/aio-template-registry/'
