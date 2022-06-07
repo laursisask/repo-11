@@ -40,12 +40,6 @@ Get started with submitting templates to Template Registry.
 
 Return metadata about App Builder templates in the Template Registry. View, add, delete, and verify templates using the API.
 
-<DiscoverBlock slots="link, text"/>
-
-[Template Validation Library](guides/template_validation_library)
-
-Run validation checks on App Builder templates for verification and endorsement purposes. 
-
 <DiscoverBlock slots="heading, link, text"/>
 
 ### API Reference

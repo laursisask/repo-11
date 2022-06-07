@@ -80,7 +80,7 @@ paths:
       parameters:
         - $ref: "#/components/parameters/NamesParam"
         - $ref: "#/components/parameters/CategoriesParam"
-        - $ref: "#/components/parameters/ServicesParam"
+        - $ref: "#/components/parameters/ApisParam"
         - $ref: "#/components/parameters/StatusesParam"
         - $ref: "#/components/parameters/AdobeRecommendedParam"
         - $ref: "#/components/parameters/SizeParam"
@@ -105,7 +105,7 @@ paths:
                   _links:
                     $ref: "#/components/schemas/Links"
                 example:
-                  {"items":[{"id":"f62f3381-592a-41a3-b936-ef953abd0155","author":"Adobe Inc.","name":"@adobe/app-builder-template","description":"AppBuilder template","adobeRecommended":true,"latestVersion":"1.0.10","publishDate":"2022-04-22T04:17:28.643Z","categories":["graphql-mesh"],"services":[{"code":"Runtime"}],"keywords":["aio-app-builder-template","aio"],"status":"Approved","links":{"npm":"https://www.npmjs.com/package/@adobe/app-builder-template","github":"https://github.com/adobe/app-builder-template"},"_links":{"self":{"href":"https://template-registry-api.tbd/apis/v1/templates/@adobe/app-builder-template"}}},{"id":"3e3aee0b-539e-43b1-b47c-0a69eaf39d6c","name":"@company1/app-builder-template","status":"InVerification","links":{"npm":"https://www.npmjs.com/package/@company1/app-builder-template","github":"https://github.com/company1/app-builder-template"},"_links":{"self":{"href":"https://template-registry-api.tbd/apis/v1/templates/@company1/app-builder-template"},"review":{"href":"https://github.com/adobe/aio-template-submission/issues/<number>","description":"A link to \"Template Review Request\" Github Issue"}}}],"_links":{"self":{"href":"https://template-registry-api.tbd/apis/v1/templates?statuses=Approved,InVerification"},"next":{"href":"https://template-registry-api.tbd/apis/v1/templates?statuses=Approved,InVerification&cursor=MTIzNDU2Nzg5MA=="}}}
+                  {"items":[{"id":"f62f3381-592a-41a3-b936-ef953abd0155","author":"Adobe Inc.","name":"@adobe/app-builder-template","description":"AppBuilder template","adobeRecommended":true,"latestVersion":"1.0.10","publishDate":"2022-04-22T04:17:28.643Z","categories":["graphql-mesh"],"apis":[{"code":"Runtime"}],"keywords":["aio-app-builder-template","aio"],"status":"Approved","links":{"npm":"https://www.npmjs.com/package/@adobe/app-builder-template","github":"https://github.com/adobe/app-builder-template"},"_links":{"self":{"href":"https://template-registry-api.tbd/apis/v1/templates/@adobe/app-builder-template"}}},{"id":"3e3aee0b-539e-43b1-b47c-0a69eaf39d6c","name":"@company1/app-builder-template","status":"InVerification","links":{"npm":"https://www.npmjs.com/package/@company1/app-builder-template","github":"https://github.com/company1/app-builder-template"},"_links":{"self":{"href":"https://template-registry-api.tbd/apis/v1/templates/@company1/app-builder-template"},"review":{"href":"https://github.com/adobe/aio-template-submission/issues/<number>","description":"A link to \"Template Review Request\" Github Issue"}}}],"_links":{"self":{"href":"https://template-registry-api.tbd/apis/v1/templates?statuses=Approved,InVerification"},"next":{"href":"https://template-registry-api.tbd/apis/v1/templates?statuses=Approved,InVerification&cursor=MTIzNDU2Nzg5MA=="}}}
         "400":
           $ref: "#/components/responses/BadRequest"
         "405":
@@ -132,7 +132,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/Template"
                 example:
-                  {"id":"4bfdb3ef-b84c-4a74-b9fc-39657ed1aaf8","author":"Adobe Inc.","name":"@adobe/app-builder-template","description":"AppBuilder template","adobeRecommended":true,"latestVersion":"1.0.10","publishDate":"2022-04-22T04:21:26.922Z","categories":["graphql-mesh"],"services":[{"code":"Runtime"}],"keywords":["aio-app-builder-template","aio"],"status":"Approved","links":{"npm":"https://www.npmjs.com/package/@adobe/app-builder-template","github":"https://github.com/adobe/app-builder-template"},"_links":{"self":{"href":"https://template-registry-api.tbd/apis/v1/templates/@adobe/app-builder-template"}}}
+                  {"id":"4bfdb3ef-b84c-4a74-b9fc-39657ed1aaf8","author":"Adobe Inc.","name":"@adobe/app-builder-template","description":"AppBuilder template","adobeRecommended":true,"latestVersion":"1.0.10","publishDate":"2022-04-22T04:21:26.922Z","categories":["graphql-mesh"],"apis":[{"code":"Runtime"}],"keywords":["aio-app-builder-template","aio"],"status":"Approved","links":{"npm":"https://www.npmjs.com/package/@adobe/app-builder-template","github":"https://github.com/adobe/app-builder-template"},"_links":{"self":{"href":"https://template-registry-api.tbd/apis/v1/templates/@adobe/app-builder-template"}}}
         "400":
           $ref: "#/components/responses/BadRequest"
         "404":
@@ -208,13 +208,13 @@ components:
       schema:
         type: string
       example: 'action,graphql-mesh'
-    ServicesParam:
-      name: services
+    ApisParam:
+      name: apis
       in: query
       required: false
       allowReserved: true # to allow a comma
       description: |
-        Filter by template services. A comma-delimited list of template services.
+        Filter by template APIs. A comma-delimited list of template APIs.
       schema:
         type: string
       example: 'AnalyticsSDK,Events'
@@ -331,9 +331,9 @@ components:
             type: string
           example:
             - graphql-mesh
-        services:
+        apis:
           type: array
-          description: A list of Adobe services required by the template
+          description: A list of Adobe APIs required by the template
           minItems: 1
           items:
             type: object
@@ -345,6 +345,34 @@ components:
                 type: string
                 description: The sdk code of the service
                 example: AdobeAnalyticsSDK
+        runtime:
+          type: boolean
+          description: Whether to add Runtime to App Builder application or not.
+          default: false
+        event: 
+          type: object
+          description: event configuration for the template
+          properties:
+            consumer:
+              type: object
+              properties:
+                type: 
+                  type: string
+                provider:
+                  type: array
+                  items:
+                    type: string
+            provider:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                event-types:
+                  type: array
+                  items:
+                    type: string
         keywords:
           type: array
           description: A list of keywords specified in the packages.json file
@@ -467,4 +495,3 @@ components:
       description: A service is temporarily unable to handle a request. Try again later.
     GatewayTimeout:
       description: The underlying service did not respond on time. Try again later.
-      

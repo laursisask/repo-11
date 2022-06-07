@@ -15,8 +15,10 @@ So you've just created a new template for App Builder and want to make it availa
 
 ### package.json
 
-- The `description` field in the NPM package's `package.json` file must not be empty. Template must have a description.
-- The `keywords` field must contain the keyword `aio-app-builder-template`. 
+| Field         | Description                                       | Required           |
+| ------------- | ------------------------------------------------- | ------------------ |
+| `description` | Template must have a description                  | Yes |
+| `keywords`    | Must contain a keyword `aio-app-builder-template` | Yes |
 
 ##### Example
 
@@ -33,9 +35,13 @@ So you've just created a new template for App Builder and want to make it availa
 
 ### install.yml
 
-- The `categories` field in `install.yml` must not be empty. Template must have categories defined.
-- If the template implements an extension point, `install.yml` should define the `extension` field. It must contain the extension point metadata in the `serviceCode` property. `extension` is an optional property.
-- If the template contains the `services` property to declare the services it uses, `services` must be an array of objects representing a service the template depends on. Each object must contain the `code` property. `services` is an optional property.
+| Field        | Type | Description                                                                                                                    | Required           |
+| ------------ | ------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
+| `categories` | list of strings | Template must have categories defined.                                                                                          | Yes |
+| `extension`  | object | Template might implement an extension point. One of its properties must be `serviceCode`, which will contain the extension metadata. | No |
+| `apis`   | list of objects | List the APIs required to be added to all Workspaces in the App Builder Project, if they don't exist. Each API object must contain `code` as one of its properties, this is the sdk code of the service. | No |
+| `event`   | object | This will list the event configuration for the template. The event template code that contains this specification may read this to configure itself. The object can have two properties: `consumer` or `provider`. | No |
+| `runtime`   | boolean | Whether to add Runtime to App Builder application or not. Defaults to `false`. | No |
 
 ##### Example 
 
@@ -49,4 +55,17 @@ services:
   - code: CampaignStandard
 extension:
   serviceCode: dx/excshell/1
+runtime: true
+event:
+  consumer:
+    type: some-type
+    provider:
+       - event-type-1
+       - event-type-2
+  provider:
+    name: provider-name
+    description: provider-description
+    event-types:
+       - event-type-1
+       - event-type-2
 ```
