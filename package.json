@@ -1,24 +1,28 @@
 {
   "private": true,
-  "name": "dev-site-documentation-template",
+  "name": "app-builder-template-registry-documentation",
   "version": "1.0.0",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AdobeDocs/dev-site-documentation-template"
+    "url": "https://github.com/AdobeDocs/app-builder-template-registry"
+  },
+  "engines": {
+    "npm": "8.11.0",
+    "node": "16.15.1"
   },
   "author": {
     "name": "Stephan Ringel",
     "url": "https://github.com/icaraps"
   },
   "dependencies": {
-    "@adobe/gatsby-theme-aio": "^3.24.2",
-    "gatsby": "^3.6.0",
+    "@adobe/gatsby-theme-aio": "^4.1.1",
+    "gatsby": "^4.13.0",
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
   },
   "scripts": {
-    "start": "export SET NODE_OPTIONS=--openssl-legacy-provider; gatsby build && gatsby serve",
+    "start": "gatsby build && gatsby serve",
     "start:prefix": "gatsby build --prefix-paths && gatsby serve --prefix-paths",
     "dev": "gatsby develop",
     "dev:https": "gatsby develop --https --host localhost.corp.adobe.com --port 9000",
