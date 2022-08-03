@@ -5,11 +5,11 @@ contributors:
   - https://github.com/amyjzhao
 ---
 
-<Hero slots="heading, text"/> 
+<Hero slots="heading, text"/>
 
 # App Builder Template Registry
 
-The Template Registry enables developers to discover and search for App Builder templates in one place that simplify the creation of App Builder applications. 
+The Template Registry enables developers to discover and search for App Builder templates in one place that simplify the creation of App Builder applications.
 
 <Resources slots="heading, links"/>
 
@@ -20,9 +20,9 @@ The Template Registry enables developers to discover and search for App Builder 
 
 ## Overview
 
-Developers can submit their templates to the Template Registry and get them reviewed and endorsed by Adobe. 
+Developers can submit their templates to the Template Registry and get them reviewed and endorsed by Adobe.
 
-## Discover 
+## Discover
 
 <DiscoverBlock width="100%" slots="heading, link, text"/>
 
@@ -36,7 +36,7 @@ Get started with submitting templates to Template Registry.
 
 ### Guides
 
-[Template Registry API](guides/template_registry_api)
+[Template Registry API](guides/api/)
 
 Return metadata about App Builder templates in the Template Registry. View, add, delete, and verify templates using the API.
 
@@ -48,7 +48,6 @@ Try the [Adobe App Builder Template Registry API](api/) with Swagger UI. Explore
 
 <DiscoverBlock slots="heading, link, text"/>
 
-## Contributing 
+## Contributing
 
-We encourage you to participate in our open documentation initiative, if you have suggestions, corrections, additions or deletions for this documentation, check out the source from [this github repo](https://github.com/adobe/aio-template-submissione), and submit a pull 
-request with your contribution.
+We encourage you to participate in our open documentation initiative, if you have suggestions, corrections, additions or deletions for this documentation, check out the source from [this github repo](https://github.com/adobe/aio-template-submissione), and submit a pull request with your contribution.

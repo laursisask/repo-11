@@ -81,6 +81,9 @@ paths:
         - $ref: "#/components/parameters/NamesParam"
         - $ref: "#/components/parameters/CategoriesParam"
         - $ref: "#/components/parameters/ApisParam"
+        - $ref: "#/components/parameters/ExtensionsParam"
+        - $ref: "#/components/parameters/EventsParam"
+        - $ref: "#/components/parameters/RuntimeParam"
         - $ref: "#/components/parameters/StatusesParam"
         - $ref: "#/components/parameters/AdobeRecommendedParam"
         - $ref: "#/components/parameters/SizeParam"
@@ -212,12 +215,50 @@ components:
       name: apis
       in: query
       required: false
+      allowEmptyValue: true
       allowReserved: true # to allow a comma
       description: |
         Filter by template APIs. A comma-delimited list of template APIs.
       schema:
         type: string
       example: 'AnalyticsSDK,Events'
+    ExtensionsParam:
+      name: extensions
+      in: query
+      required: false
+      allowEmptyValue: true
+      allowReserved: true # to allow a comma
+      description: |
+        Filter by template extension points. A comma-delimited list of template extension points.
+      schema:
+        type: string
+      example: 'dx/excshell/1,dx/asset-compute/worker/1'
+    EventsParam:
+      name: events
+      in: query
+      required: false
+      allowEmptyValue: true
+      description: |
+        Filter by template events. It supports "empty" (?events=) and "any" (?events=*) filters for now.
+        The "empty" filter (?events=) returns templates that do not have the "event" property set.
+        The "any" (?events=*) filter returns templates that do have the "event" property set.
+      schema:
+        type: string
+      example: '*'
+    RuntimeParam:
+      name: runtime
+      in: query
+      required: false
+      allowEmptyValue: true
+      description: |
+        Is Runtime required or not.
+      schema:
+        type: string
+        enum:
+          - 'true'
+          - 'false'
+          - '*'
+      example: 'true'
     StatusesParam:
       name: statuses
       in: query
@@ -313,16 +354,20 @@ components:
           type: string
           description: The date the template was published in the ISO 8601 format
           example: '2022-04-20T19:54:41.495Z'
-        extension:
-          type: object
-          description: It contains the extension metadata if the template implements an extension point
-          required:
-            - serviceCode
-          additionalProperties: true
-          properties:
-            serviceCode:
-              type: string
-              example: 'dx/excshell/1'
+        extensions:
+          type: array
+          description: Extension points that a template implements
+          minItems: 1
+          items:
+            type: object
+            required:
+              - extensionPointId
+            additionalProperties: true
+            properties:
+              extensionPointId:
+                type: string
+                description: Extension Point Id
+                example: 'dx/excshell/1'
         categories:
           type: array
           description: A list of categories the template belongs to
@@ -349,30 +394,9 @@ components:
           type: boolean
           description: Whether to add Runtime to App Builder application or not.
           default: false
-        event: 
+        event:
           type: object
           description: event configuration for the template
-          properties:
-            consumer:
-              type: object
-              properties:
-                type: 
-                  type: string
-                provider:
-                  type: array
-                  items:
-                    type: string
-            provider:
-              type: object
-              properties:
-                name:
-                  type: string
-                description:
-                  type: string
-                event-types:
-                  type: array
-                  items:
-                    type: string
         keywords:
           type: array
           description: A list of keywords specified in the packages.json file
