@@ -1,12 +1,12 @@
 ---
-title: Guides - App Builder Template Registry Github Repository
-description: This is the guides overview page of App Builder Template Registry Github repository.
+title: Reference - App Builder Template Registry Github Repository
+description: This is the reference overview page of App Builder Template Registry Github repository.
 contributors:
   - https://github.com/amyjzhao
 ---
 # Using Template Registry's Github repository
 
-Template Registry's Github repository can be found here: [https://github.com/adobe/aio-template-submission](https://github.com/adobe/aio-template-submission).
+[Add](reference/#add-a-template), [update](reference/#update-a-template), and [remove](reference/#remove-a-template) templates from Template Registry through its Github repository, which can be found here: [https://github.com/adobe/aio-template-submission](https://github.com/adobe/aio-template-submission).
 
 ## Add a template
 
@@ -20,8 +20,12 @@ Template Registry's Github repository can be found here: [https://github.com/ado
 6. Use name of the NPM package as the title of the issue as well.
 7. Click `Submit new issue`.
 8. If template has passed the verification process and been successfully added to the registry, a comment will appear on the issue with the message "Congratulations! Your template has been verified and added to App Builder Template Registry.".
-9. If template fails the verification process (outlined [here](/guides)), a comment detailing the failed checks will appear.
+9. If template fails the verification process (outlined [here](/reference)), a comment detailing the failed checks will appear.
 10. After the mentioned issues are addressed, the verification process can be triggered again by commenting `/check` on the issue. 
+
+<InlineAlert variant="info" slots="text"/>
+
+After passing automatic checks, templates by third-party developers will initially be assigned a status "InVerification" indicating they still need to be verified by Adobe. An Adobe team member will have to review and manually approve the template for it to gain full "Approved" status.
 
 ## Update a template
 
@@ -38,6 +42,10 @@ Template Registry's Github repository can be found here: [https://github.com/ado
 <InlineAlert variant="info" slots="text"/>
 
 Only the original owner that added the template to the registry may update a template. If not the original owner, contact the Developer Experience team at devx-services@adobe.com to update a template.
+
+<InlineAlert variant="info" slots="text"/>
+
+Templates by third-party developers will need to be re-approved manually by an Adobe team member to regain "Approved" status after each new version.
 
 ## Remove a template
 

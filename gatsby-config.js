@@ -22,30 +22,44 @@ module.exports = {
         path: '/guides/'
       },
       {
+        title: 'Reference',
+        path: '/reference/'
+      },
+      {
         title: 'API',
         path: '/api/'
       }
     ],
     subPages: [
       {
-        title: 'Template Registry',
-        path: '/guides/',
+        title: 'Reference',
+        path: '/reference/',
         pages: [
           {
-            title: 'Overview',
-            path: '/guides/'
-          },
-          {
             title: 'Github',
-            path: '/guides/github/'
+            path: '/reference/github/'
           },
           {
             title: 'CLI',
-            path: '/guides/cli/'
+            path: '/reference/cli/'
           },
           {
             title: 'API',
-            path: '/guides/api/'
+            path: '/reference/api/'
+          }
+        ]
+      },
+      {
+        title: 'Guides',
+        path: '/guides/',
+        pages: [
+          {
+            title: 'Creating an App Builder template',
+            path: '/guides/creating_template'
+          },
+          {
+            title: 'Requirements',
+            path: '/guides/requirements'
           }
         ]
       }

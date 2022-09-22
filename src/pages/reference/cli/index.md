@@ -1,6 +1,6 @@
 ---
-title: Guides - App Builder Template Registry CLI
-description: This is the guides overview page of App Builder Template Registry CLI.
+title: Reference - App Builder Template Registry CLI
+description: This is the reference overview page of App Builder Template Registry CLI.
 contributors:
   - https://github.com/amyjzhao
 ---
@@ -116,7 +116,7 @@ Remove an Adobe Developer App Builder template from the Template Registry
 
 <InlineAlert variant="info" slots="text"/>
 
-Performs this [action](/guides/github/#remove-a-template) in the Template Registry [Github repository](https://github.com/adobe/aio-template-submission)
+Performs this [action](/reference/github/#remove-a-template) in the Template Registry [Github repository](https://github.com/adobe/aio-template-submission)
 
 #### Syntax
 
@@ -162,7 +162,7 @@ Submit an Adobe Developer App Builder template
 
 <InlineAlert variant="info" slots="text"/>
 
-Performs this [action](/guides/github/#add-a-template) in the Template Registry [Github repository](https://github.com/adobe/aio-template-submission)
+Performs this [action](/reference/github/#add-a-template) in the Template Registry [Github repository](https://github.com/adobe/aio-template-submission)
 
 #### Syntax
 

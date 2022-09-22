@@ -17,10 +17,13 @@ The Template Registry enables developers to discover and search for App Builder 
 
 * [Template Registry Github Repo](https://github.com/adobe/aio-template-submission)
 * [Template Validation Github Repo](https://github.com/adobe/aio-lib-template-validation)
+* [SDK for Template Registry API](https://github.com/adobe/aio-lib-templates)
+* [AIO CLI App Builder templates plugin](https://github.com/adobe/aio-cli-plugin-app-templates)
 
 ## Overview
 
 Developers can submit their templates to the Template Registry and get them reviewed and endorsed by Adobe.
+
 
 ## Discover
 
@@ -30,23 +33,36 @@ Developers can submit their templates to the Template Registry and get them revi
 
 [Quickstart Guide](guides/)
 
-Get started with submitting templates to Template Registry.
+Get started with Template Registry.
 
 <DiscoverBlock slots="heading, link, text"/>
 
-### Guides
+### Reference
 
-[Template Registry API](guides/api/)
+[Github](reference/github/)
 
-Return metadata about App Builder templates in the Template Registry. View, add, delete, and verify templates using the API.
+Template developers can submit, update, or remove App Builder templates from Template Registry by creating issues in the Template Registry Github repository. 
 
-<DiscoverBlock slots="heading, link, text"/>
+<DiscoverBlock slots="link, text"/>
+
+[CLI](reference/cli/)
+
+Interact with Template Registry through Adobe I/O Extensible CLI, whether to submit one as a template developer or install one in your own App Builder application.
+
+<DiscoverBlock slots="link, text"/>
+
+[API](reference/api)
+
+List, filter, create, and delete templates via the Template Registry API. 
+
+<DiscoverBlock slots="link, text"/>
 
 ### API Reference
 
 Try the [Adobe App Builder Template Registry API](api/) with Swagger UI. Explore, make calls, with full endpoint descriptions.
 
 <DiscoverBlock slots="heading, link, text"/>
+
 
 ## Contributing
 

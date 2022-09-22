@@ -1,6 +1,6 @@
 ---
-title: Guides - App Builder Template Registry API
-description: This is the guides overview page of App Builder Template Registry API.
+title: Reference - App Builder Template Registry API
+description: This is the reference overview page of App Builder Template Registry API.
 contributors:
   - https://github.com/amyjzhao
 ---
@@ -22,6 +22,15 @@ A valid Adobe IMS access token is required for `POST` and `DELETE` actions.
 ## Summary of Endpoints
 
 Use the [Swagger UI](/api/index.md) to see endpoint summaries, available methods, parameters, example values, models, and status codes, and to try out the API.
+
+#### Base URL
+
+| Environment | URL |
+|---------|----------|
+| Prod | https://360030-templateregistryapi.adobeioruntime.net |
+| Stage | https://360030-templateregistryapi-stage.adobeioruntime.net |
+
+#### Endpoints
 
 | Description               | Action | Path                              | HTTP status code                       |
 |---------------------------|--------|-----------------------------------|----------------------------------------|
