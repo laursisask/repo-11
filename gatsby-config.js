@@ -66,5 +66,5 @@ module.exports = {
     ]
   },
   plugins: [`@adobe/gatsby-theme-aio`],
-  pathPrefix: process.env.PATH_PREFIX || '/aio-template-registry/'
+  pathPrefix: process.env.PATH_PREFIX || '/app-builder-template-registry/'
 };
