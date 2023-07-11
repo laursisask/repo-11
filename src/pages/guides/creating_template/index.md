@@ -31,7 +31,7 @@ Set the following keys to the desired values. When a template is installed, thes
 
 When your template is installed, it will run the Yeoman generator at src/index.js. When run, the current working directory will be the root path of the App Builder app.
 
-- If you are creating an Action template, use [this template](https://github.com/adobe/generator-add-action-generic) as a reference. [Common constants]((https://github.com/adobe/generator-app-common-lib/blob/main/lib/constants.js)) (e.g. API service codes) can also be found in the template.
+- If you are creating an Action template, use [this template](https://github.com/adobe/generator-add-action-generic) as a reference. [Common constants](https://github.com/adobe/generator-app-common-lib/blob/main/lib/constants.js) (e.g. API service codes) can also be found in the template.
   - This leverages [this library](https://github.com/adobe/generator-app-common-lib/blob/main/lib/constants.js) and overrides the base ActionGenerator.
   - See the `writing()` [method](https://github.com/adobe/generator-add-action-generic/blob/main/index.js#L49) on how to configure the action.
 - Try to modularize your code into several generators, if possible.
