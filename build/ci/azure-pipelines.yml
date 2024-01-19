@@ -56,16 +56,19 @@ stages: # TODO here goes the pr template, this is just for testing purposes
               mv ko /usr/local/bin
 
             name: "InstallGOKO"
-
           # authenticate to ACR
           - template: setup/docker-acr-login.yml@OutSystems.CICDPlatform.AzureCITemplates
             parameters:
               ContainerRegistry: "SDLC EdenCore"
+          # test code
+          # - template: build/make-command.yml@OutSystems.CICDPlatform.AzureCITemplates
+          #   parameters:
+          #     MakeCommand: "test"
+          #     DisplayName: "Test Project"
           # build docker images
           - template: build/make-command.yml@OutSystems.CICDPlatform.AzureCITemplates
             parameters:
               MakeCommand: "build.push-amd64"
               MakeCommandArgs: "REGISTRY=${{variables.CoreACRUri}} BINARY=os-external-dns"
-              DisplayName: "Build Projects"
+              DisplayName: "Build and Push"
               MakefileFolder: "$(ProjectPath)"
-      
