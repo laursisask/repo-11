@@ -52,3 +52,4 @@ stages: # TODO here goes the pr template, this is just for testing purposes
               MakeCommand: "build.image-amd64"
               MakeCommandArgs: "REGISTRY=${{variables.CoreACRUri}} BINARY=os-external-dns"
               DisplayName: "Build Project"
+              MakefileFolder: "$(ProjectPath)"
