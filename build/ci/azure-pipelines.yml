@@ -19,7 +19,7 @@ resources:
 trigger:
   branches:
     include:
-      - main
+      - master
 
 # Do not trigger on PRs
 pr: none
