@@ -41,6 +41,21 @@ stages: # TODO here goes the pr template, this is just for testing purposes
             fetchDepth: 0 #AzDo enables by default Shallow fetch and configures it with a depth of 1
             lfs: true
             persistCredentials: true
+          - bash: |
+              #!/bin/bash
+              set -e
+              set -o pipefail
+
+              # install go ko
+              VERSION=0.15.1
+              OS=Linux
+              ARCH=x86_64
+              curl -sSfL "https://github.com/ko-build/ko/releases/download/v${VERSION}/ko_${VERSION}_${OS}_${ARCH}.tar.gz" > ko.tar.gz
+              tar xzf ko.tar.gz ko
+              chmod +x ko
+              mv ko /usr/local/bin
+
+            name: "InstallGOKO"
 
           # authenticate to ACR
           - template: setup/docker-acr-login.yml@OutSystems.CICDPlatform.AzureCITemplates
