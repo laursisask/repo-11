@@ -15,7 +15,7 @@ services:
       - ollama-webui
     networks:
       - ollama-docker
-      
+
   ollama:
     volumes:
       - ./ollama/ollama:/root/.ollama
@@ -25,7 +25,7 @@ services:
     restart: unless-stopped
     image: ollama/ollama:latest
     ports:
-      - 7869:11434
+      - 11434:11434
     environment:
       - OLLAMA_KEEP_ALIVE=24h
     networks:
@@ -36,7 +36,7 @@ services:
           devices:
             - driver: nvidia
               count: 1
-              capabilities: [gpu]
+              capabilities: [ gpu ]
 
   ollama-webui:
     image: ghcr.io/open-webui/open-webui:main
@@ -47,8 +47,9 @@ services:
       - ollama
     ports:
       - 8080:8080
-    environment: # https://docs.openwebui.com/getting-started/env-configuration#default_models
-      - OLLAMA_BASE_URLS=http://host.docker.internal:7869 #comma separated ollama hosts
+    environment:
+      # https://docs.openwebui.com/getting-started/env-configuration#default_models
+      - OLLAMA_BASE_URLS=http://host.docker.internal:11434 #comma separated ollama hosts
       - ENV=dev
       - WEBUI_AUTH=False
       - WEBUI_NAME=valiantlynx AI
