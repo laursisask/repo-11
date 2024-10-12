@@ -265,7 +265,7 @@ jobs:
       env:
         cache-name: cache-node-modules
       name: Cache node modules
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json')
           }}
@@ -288,7 +288,7 @@ jobs:
       env:
         cache-name: ccache-v1
       name: Cache ccache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         key: ${{ env.cache-name }}-${{ runner.os }}-${{ github.job }}-${{ github.ref
           }}-${{ github.sha }}-${{ github.head_ref }}
@@ -315,7 +315,7 @@ jobs:
       env:
         cache-name: gradle-v1
       name: restore-gradle-cache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         key: ${{ env.cache-name }}-{{ hashFiles 'gradle/dependencies.gradle' }}-{{
           hashFiles 'build.gradle' }}-{{ hashFiles 'gradle/wrapper/gradle-wrapper.properties'
