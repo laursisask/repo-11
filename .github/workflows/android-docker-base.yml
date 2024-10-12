@@ -261,7 +261,7 @@ jobs:
         username: ${{ github.repository_owner }}
     - continue-on-error: true
       name: Build and push android-base image
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v6
       with:
         context: ./platform/android/docker
         file: ./platform/android/docker/android-base
