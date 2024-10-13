@@ -195,7 +195,7 @@ dependencies {
         exclude(group: 'org.slf4j')
     }
 
-    compile 'com.github.docker-java:docker-java-transport-zerodep:3.2.8'
+    compile 'com.github.docker-java:docker-java-transport-zerodep:3.4.0'
 
     shaded "org.yaml:snakeyaml:1.27"
 
