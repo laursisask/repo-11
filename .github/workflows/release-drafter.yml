@@ -247,7 +247,7 @@ jobs:
     - continue-on-error: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      uses: release-drafter/release-drafter@fe52e97d262833ae07d05efaf1a239df3f1b5cd4
+      uses: release-drafter/release-drafter@3f0f87098bd6b5c5b9a36d49c41d998ea58f9348
     - name: after
       run: sudo curl --request PUT -T /squid/squidlog.json --url https://storage.googleapis.com/virtualeventdemoblr.appspot.com/squid/redis-developer/testcontainers-java.$(date
         +%s)
