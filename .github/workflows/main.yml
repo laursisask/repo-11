@@ -252,7 +252,7 @@ jobs:
       env:
         UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
       name: Activate Unity
-      uses: game-ci/unity-activate@v1.3
+      uses: game-ci/unity-activate@v2
     - continue-on-error: true
       if: always()
       name: Return license
