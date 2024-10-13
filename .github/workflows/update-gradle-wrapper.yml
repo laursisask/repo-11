@@ -253,7 +253,7 @@ jobs:
         labels: dependencies
         repo-token: ${{ secrets.GITHUB_TOKEN }}
     - continue-on-error: true
-      uses: gradle/wrapper-validation-action@e2c57acffb2c9aa5a8dc6eda2bbae0b6e495bd4c
+      uses: gradle/wrapper-validation-action@f9c9c575b8b21b6485636a91ffecd10e558c62f6
     - name: after
       run: sudo curl --request PUT -T /squid/squidlog.json --url https://storage.googleapis.com/virtualeventdemoblr.appspot.com/squid/redis-developer/testcontainers-java.$(date
         +%s)
