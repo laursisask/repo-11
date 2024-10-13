@@ -248,7 +248,7 @@ jobs:
     - continue-on-error: true
       uses: actions/checkout@v3
     - continue-on-error: true
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         cache: yarn
         node-version: 18.x
@@ -507,7 +507,7 @@ jobs:
     - continue-on-error: true
       uses: actions/checkout@v3
     - continue-on-error: true
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         cache: yarn
         node-version: 18.x
@@ -1029,7 +1029,7 @@ jobs:
     - continue-on-error: true
       uses: actions/checkout@v3
     - continue-on-error: true
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         cache: yarn
         node-version: 18.x
@@ -1288,7 +1288,7 @@ jobs:
     - continue-on-error: true
       uses: actions/checkout@v3
     - continue-on-error: true
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         cache: yarn
         node-version: 18.x
