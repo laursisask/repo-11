@@ -269,7 +269,7 @@ jobs:
       run: cargo llvm-cov --locked --all-features --lcov --output-path lcov.info
     - continue-on-error: true
       name: Upload to codecov.io
-      uses: codecov/codecov-action@v3
+      uses: codecov/codecov-action@v4
       with:
         fail_ci_if_error: true
     - name: after
