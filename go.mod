@@ -56,7 +56,7 @@ require (
 	github.com/vinyldns/go-vinyldns v0.0.0-20200211145900-fe8a3d82e556
 	github.com/vultr/govultr/v2 v2.5.1
 	go.etcd.io/etcd v0.5.0-alpha.5.0.20200401174654-e694b7bb0875
-	go.uber.org/ratelimit v0.1.0
+	go.uber.org/ratelimit v0.3.1
 	golang.org/x/net v0.0.0-20201224014010-6772e930b67b
 	golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d
 	golang.org/x/sync v0.0.0-20200625203802-6e8e738ad208
