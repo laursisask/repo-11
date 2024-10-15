@@ -5,7 +5,7 @@ go 1.17
 replace google.golang.org/grpc => google.golang.org/grpc v1.29.1
 
 require (
-	github.com/Laisky/graphql v1.0.5
+	github.com/Laisky/graphql v1.0.6
 	github.com/Masterminds/sprig/v3 v3.2.2
 	github.com/bradleyfalzon/ghinstallation/v2 v2.1.0
 	github.com/briandowns/spinner v0.0.0-20170614154858-48dbb65d7bd5
