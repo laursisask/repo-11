@@ -8,14 +8,14 @@ require (
 	github.com/kubernetes-csi/csi-lib-utils v0.14.0
 	github.com/kubernetes-csi/csi-test/v5 v5.0.0
 	google.golang.org/grpc v1.57.0
-	k8s.io/klog/v2 v2.100.1
+	k8s.io/klog/v2 v2.130.1
 )
 
 require (
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/blang/semver/v4 v4.0.0 // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
-	github.com/go-logr/logr v1.2.3 // indirect
+	github.com/go-logr/logr v1.4.1 // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.2 // indirect
 	github.com/prometheus/client_golang v1.14.0 // indirect
