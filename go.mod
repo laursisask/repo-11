@@ -62,7 +62,7 @@ require (
 	golang.org/x/sync v0.0.0-20200625203802-6e8e738ad208
 	golang.org/x/tools v0.0.0-20200708003708-134513de8882 // indirect
 	google.golang.org/api v0.15.0
-	gopkg.in/ns1/ns1-go.v2 v2.0.0-20190322154155-0dafb5275fd1
+	gopkg.in/ns1/ns1-go.v2 v2.12.1
 	gopkg.in/yaml.v2 v2.3.0
 	honnef.co/go/tools v0.0.1-2020.1.4 // indirect
 	istio.io/api v0.0.0-20210128181506-0c4b8e54850f
