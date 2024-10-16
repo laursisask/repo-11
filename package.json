@@ -57,7 +57,7 @@
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
     "mocha": "^5.2.0",
-    "sinon": "^1.17.1"
+    "sinon": "^19.0.2"
   },
   "main": "./lib/winston-logzio",
   "engines": {
