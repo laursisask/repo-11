@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.1.0 (2024-10-16)
+
+
+### Features
+
+* migration from bitbucket ([#3](https://github.com/laursisask/repo-11/issues/3)) ([cd6a1e2](https://github.com/laursisask/repo-11/commit/cd6a1e2597488589c7204fe1aa7c7613f29219a2))
+* prepare for maven central ([#6](https://github.com/laursisask/repo-11/issues/6)) ([3c2a6d4](https://github.com/laursisask/repo-11/commit/3c2a6d4aa25019b805ad98f0af44ed14164bc736))
+* release 1.3.0 with Apache POI v5.3.0 (updated by renovate) ([#17](https://github.com/laursisask/repo-11/issues/17)) ([6361239](https://github.com/laursisask/repo-11/commit/636123974b5f726e14563ad2fc90a05ee8e9399b))
+* structure of the project is changed to simplify cognitive complexity ([#11](https://github.com/laursisask/repo-11/issues/11)) ([5b6b699](https://github.com/laursisask/repo-11/commit/5b6b699857cf579b09625f1222074a1d2c05b415))
+
+
+### Bug Fixes
+
+* **deps:** update dependency org.apache.poi:poi-ooxml to v5.3.0 ([#12](https://github.com/laursisask/repo-11/issues/12)) ([d75306e](https://github.com/laursisask/repo-11/commit/d75306e5ba39dda0c0edeb17df8483da2c6f533c))
+* fix parent versions after release-please ([#8](https://github.com/laursisask/repo-11/issues/8)) ([11f83de](https://github.com/laursisask/repo-11/commit/11f83de5b15c4b722c11d3cb208d35e87c518247))
+
 ## [1.3.0](https://github.com/SchweizerischeBundesbahnen/ch.sbb.polarion.thirdparty.bundles/compare/v1.2.0...v1.3.0) (2024-07-03)
 
 
