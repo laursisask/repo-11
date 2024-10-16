@@ -531,7 +531,7 @@ jobs:
       name: Add safe directory
       run: git config --global --add safe.directory /__w/envoy/envoy
     - continue-on-error: true
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: envoy_android_aar_sources
         path: .
