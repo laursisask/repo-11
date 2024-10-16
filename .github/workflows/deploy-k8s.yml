@@ -291,7 +291,7 @@ jobs:
         namespace: ${{env.AZURE_AKS_NAMESPACE}}
         secret-name: image-pull-secret
     - continue-on-error: true
-      uses: Azure/k8s-deploy@v4.10
+      uses: Azure/k8s-deploy@v5
       with:
         imagepullsecrets: 'image-pull-secret
 
