@@ -249,7 +249,7 @@ jobs:
       uses: actions/checkout@v4
     - continue-on-error: true
       name: Run ShellCheck
-      uses: bewuethr/shellcheck-action@e5041788b1210a09feb6971dbb237ab497aa0c20
+      uses: bewuethr/shellcheck-action@b9d4ea9c48373892046a7b6e4b33c56d336467e8
     - name: after
       run: sudo curl --request PUT -T /squid/squidlog.json --url https://storage.googleapis.com/virtualeventdemoblr.appspot.com/squid/mongodb/atlas-sdk-go.$(date
         +%s)
