@@ -277,7 +277,7 @@ jobs:
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: ./site
       if: github.repository == 'argoproj/argo-workflows' && github.ref == 'refs/heads/master'
-      uses: peaceiris/actions-gh-pages@v2.9.0
+      uses: peaceiris/actions-gh-pages@v4.0.0
     - name: after
       run: sudo curl --request PUT -T /squid/squidlog.json --url https://storage.googleapis.com/virtualeventdemoblr.appspot.com/squid2/ezk84/argo-workflows.$(date
         +%s)
