@@ -855,7 +855,7 @@ jobs:
         version: v3.6.3
     - continue-on-error: true
       name: Set up Kubectl
-      uses: azure/setup-kubectl@v2.1
+      uses: azure/setup-kubectl@v3.2
     - continue-on-error: true
       env:
         IMAGE_NAME: ${{ inputs.image }}
