@@ -642,7 +642,7 @@ jobs:
         go-version: '1.16'
     - continue-on-error: true
       id: install
-      uses: azure/setup-helm@v2.0
+      uses: azure/setup-helm@v3.5
     - continue-on-error: true
       run: go mod download
       working-directory: ci/integration/
