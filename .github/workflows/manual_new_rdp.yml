@@ -302,7 +302,7 @@ jobs:
       id: slack
       if: ${{ github.event.inputs.notify-slack == 'true' }}
       name: Notification Slack
-      uses: slackapi/slack-github-action@v1.26
+      uses: slackapi/slack-github-action@v1.27
       with:
         payload: "{\"blocks\":[{\"type\":\"section\",\"text\":{\"type\":\"mrkdwn\"\
           ,\"text\":\":newspaper: La GeoRDP du ${{ env.DATE_FR_LONG }} a \xE9t\xE9\
