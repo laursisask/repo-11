@@ -251,7 +251,7 @@ jobs:
     - continue-on-error: true
       id: markdownlint-github-pr-review-added
       name: "V\xE9rifie la syntaxe des lignes ajout\xE9es ou modifi\xE9es"
-      uses: reviewdog/action-markdownlint@v0.18.0
+      uses: reviewdog/action-markdownlint@v0.25.0
       with:
         fail_on_error: true
         filter_mode: added
